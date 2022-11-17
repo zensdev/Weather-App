@@ -54,30 +54,22 @@ class SearchPage extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.w500,
-                          color: Colors.white70),
-                    ),
-                    Text(
-                      "Instanly",
-                      style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w200,
-                          color: Colors.white70),
+                          color: Colors.white),
                     ),
                     SizedBox(
-                      height: 24,
+                      height: 35,
                     ),
                     TextFormField(
                       controller: cityController,
                       decoration: InputDecoration(
                         prefixIcon: Icon(
                           Icons.search,
-                          color: Colors.white70,
+                          color: Colors.white,
                         ),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide: BorderSide(
-                                color: Colors.white70,
-                                style: BorderStyle.solid)),
+                                color: Colors.white, style: BorderStyle.solid)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide: BorderSide(
@@ -85,7 +77,7 @@ class SearchPage extends StatelessWidget {
                         hintText: "City Name",
                         hintStyle: TextStyle(color: Colors.white70),
                       ),
-                      style: TextStyle(color: Colors.white70),
+                      style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(
                       height: 20,
@@ -105,7 +97,7 @@ class SearchPage extends StatelessWidget {
                         },
                         child: Text(
                           "Search",
-                          style: TextStyle(color: Colors.white70, fontSize: 16),
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
                     )
@@ -142,22 +134,30 @@ class ShowWeather extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              city,
+              weather.cityName,
               style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 30,
+                  color: Colors.white,
+                  fontSize: 50,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 10,
+              height: 15,
+            ),
+            Icon(
+              Icons.sunny,
+              color: Colors.orange,
+              size: 100,
+            ),
+            SizedBox(
+              height: 15,
             ),
             Text(
-              weather.getTemp.round().toString() + "C",
-              style: TextStyle(color: Colors.white70, fontSize: 50),
+              weather.getTemp.round().toString() + "°C",
+              style: TextStyle(color: Colors.white, fontSize: 50),
             ),
             Text(
               "Temprature",
-              style: TextStyle(color: Colors.white70, fontSize: 14),
+              style: TextStyle(color: Colors.white, fontSize: 14),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,31 +165,31 @@ class ShowWeather extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     Text(
-                      weather.getMinTemp.round().toString() + "C",
-                      style: TextStyle(color: Colors.white70, fontSize: 30),
+                      weather.getMinTemp.round().toString() + "°C",
+                      style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                     Text(
                       "Min Temprature",
-                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                      style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                   ],
                 ),
                 Column(
                   children: <Widget>[
                     Text(
-                      weather.getMaxTemp.round().toString() + "C",
-                      style: TextStyle(color: Colors.white70, fontSize: 30),
+                      weather.getMaxTemp.round().toString() + "°C",
+                      style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                     Text(
                       "Max Temprature",
-                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                      style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                   ],
                 ),
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 50,
             ),
             Container(
               width: double.infinity,
@@ -205,7 +205,7 @@ class ShowWeather extends StatelessWidget {
                 },
                 child: Text(
                   "Search",
-                  style: TextStyle(color: Colors.white70, fontSize: 16),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
             )
