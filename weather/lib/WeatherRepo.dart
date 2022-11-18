@@ -1,19 +1,8 @@
-// ignore_for_file: import_of_legacy_library_into_null_safe
+// ignore_for_file: import_of_legacy_library_into_null_safe, file_names
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'WeatherModel.dart';
-
-// class WeatherRepo {
-//   Future<WeatherModel>? getWeather(String city) async {
-//     var endpoint = Uri.parse(
-//         "https://api.openweathermap.org/data/2.5/weather?q=$city&APPID=43ea6baaad7663dc17637e22ee6f78f2&lang=vi");
-
-//     var resposne = await http.get(endpoint);
-//     var body = jsonDecode(resposne.body);
-//     return WeatherModel.fromJson(body);
-//   }
-// }
 
 class WeatherRepo {
   Future<WeatherModel> getWeather(String city) async {
@@ -28,7 +17,7 @@ class WeatherRepo {
   WeatherModel parsedJson(final response) {
     final jsonDecoded = json.decode(response);
 
-    //final jsonWeather = jsonDecoded[response.body];
+    print(WeatherModel.fromJson(jsonDecoded));
 
     return WeatherModel.fromJson(jsonDecoded);
   }

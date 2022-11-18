@@ -1,4 +1,4 @@
-// ignore_for_file: import_of_legacy_library_into_null_safe, depend_on_referenced_packages, prefer_typing_uninitialized_variables, avoid_print
+// ignore_for_file: import_of_legacy_library_into_null_safe, depend_on_referenced_packages, prefer_typing_uninitialized_variables, avoid_print, file_names
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
