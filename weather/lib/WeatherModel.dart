@@ -16,7 +16,12 @@ class WeatherModel {
       this.temp_min, this.cityName);
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
-    return WeatherModel(json["temp"], json["pressure"], json["humidity"],
-        json["temp_max"], json["temp_min"], json["name"]);
+    return WeatherModel(
+        json["main"]["temp"],
+        json["main"]["pressure"],
+        json["main"]["humidity"],
+        json["main"]["temp_max"],
+        json["main"]["temp_min"],
+        json["name"]);
   }
 }

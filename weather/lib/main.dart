@@ -1,9 +1,12 @@
 //! RUN:  flutter run --no-sound-null-safety
 
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, import_of_legacy_library_into_null_safe, sized_box_for_whitespace, must_be_immutable, prefer_typing_uninitialized_variables, prefer_interpolation_to_compose_strings
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, import_of_legacy_library_into_null_safe, sized_box_for_whitespace, must_be_immutable, prefer_typing_uninitialized_variables, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables
+
+import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather/widgets/header_widget.dart';
 import 'WeatherBloc.dart';
 import 'WeatherModel.dart';
 import 'WeatherRepo.dart';
@@ -50,7 +53,7 @@ class SearchPage extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Search Weather",
+                      "Tìm kiếm thời tiết",
                       style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.w500,
@@ -74,7 +77,7 @@ class SearchPage extends StatelessWidget {
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             borderSide: BorderSide(
                                 color: Colors.blue, style: BorderStyle.solid)),
-                        hintText: "City Name",
+                        hintText: "Tên thành phố",
                         hintStyle: TextStyle(color: Colors.white70),
                       ),
                       style: TextStyle(color: Colors.white),
@@ -96,7 +99,7 @@ class SearchPage extends StatelessWidget {
                           weatherBloc.add(FetchWeather(cityController.text));
                         },
                         child: Text(
-                          "Search",
+                          "Tìm kiếm",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
@@ -156,7 +159,7 @@ class ShowWeather extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 50),
             ),
             Text(
-              "Temprature",
+              "Nhiệt độ",
               style: TextStyle(color: Colors.white, fontSize: 14),
             ),
             Row(
@@ -169,7 +172,7 @@ class ShowWeather extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                     Text(
-                      "Min Temprature",
+                      "Nhiệt độ thấp nhất",
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                   ],
@@ -181,7 +184,7 @@ class ShowWeather extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                     Text(
-                      "Max Temprature",
+                      "Nhiệt độ cao nhất",
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                   ],
@@ -199,12 +202,36 @@ class ShowWeather extends StatelessWidget {
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.white)))),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdditionalWeather(weather)));
+                },
+                child: Text(
+                  "Chi tiết",
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: double.infinity,
+              height: 50,
+              child: TextButton(
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: Colors.blue)))),
                 onPressed: () {
                   BlocProvider.of<WeatherBloc>(context).add(ResetWeather());
                 },
                 child: Text(
-                  "Search",
+                  "Tìm kiếm",
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ),
@@ -212,4 +239,129 @@ class ShowWeather extends StatelessWidget {
           ],
         ));
   }
+}
+
+class AdditionalWeather extends StatelessWidget {
+  WeatherModel weather;
+
+  AdditionalWeather(this.weather);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          HeaderWidget(),
+        ],
+      )),
+    );
+  }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Container(
+  //       padding: EdgeInsets.only(right: 32, left: 32, top: 10),
+  //       child: Column(
+  //         children: <Widget>[
+  //           Text(
+  //             weather.cityName,
+  //             style: TextStyle(
+  //                 color: Colors.white,
+  //                 fontSize: 50,
+  //                 fontWeight: FontWeight.bold),
+  //           ),
+  //           SizedBox(
+  //             height: 15,
+  //           ),
+  //           Icon(
+  //             Icons.sunny,
+  //             color: Colors.orange,
+  //             size: 100,
+  //           ),
+  //           SizedBox(
+  //             height: 15,
+  //           ),
+  //           Text(
+  //             weather.getTemp.round().toString() + "°C",
+  //             style: TextStyle(color: Colors.white, fontSize: 50),
+  //           ),
+  //           Text(
+  //             "Nhiệt độ",
+  //             style: TextStyle(color: Colors.white, fontSize: 14),
+  //           ),
+  //           Row(
+  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //             children: <Widget>[
+  //               Column(
+  //                 children: <Widget>[
+  //                   Text(
+  //                     weather.getMinTemp.round().toString() + "°C",
+  //                     style: TextStyle(color: Colors.white, fontSize: 30),
+  //                   ),
+  //                   Text(
+  //                     "Nhiệt độ thấp nhất",
+  //                     style: TextStyle(color: Colors.white, fontSize: 14),
+  //                   ),
+  //                 ],
+  //               ),
+  //               Column(
+  //                 children: <Widget>[
+  //                   Text(
+  //                     weather.getMaxTemp.round().toString() + "°C",
+  //                     style: TextStyle(color: Colors.white, fontSize: 30),
+  //                   ),
+  //                   Text(
+  //                     "Nhiệt độ cao nhất",
+  //                     style: TextStyle(color: Colors.white, fontSize: 14),
+  //                   ),
+  //                 ],
+  //               ),
+  //             ],
+  //           ),
+  //           SizedBox(
+  //             height: 50,
+  //           ),
+  //           Container(
+  //             width: double.infinity,
+  //             height: 50,
+  //             child: TextButton(
+  //               style: ButtonStyle(
+  //                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+  //                       RoundedRectangleBorder(
+  //                           borderRadius: BorderRadius.circular(18.0),
+  //                           side: BorderSide(color: Colors.white)))),
+  //               onPressed: () {
+  //                 Navigator.pop(context);
+  //               },
+  //               child: Text(
+  //                 "Trở lại",
+  //                 style: TextStyle(color: Colors.white, fontSize: 16),
+  //               ),
+  //             ),
+  //           ),
+  //           SizedBox(
+  //             height: 20,
+  //           ),
+  //           Container(
+  //             width: double.infinity,
+  //             height: 50,
+  //             child: TextButton(
+  //               style: ButtonStyle(
+  //                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+  //                       RoundedRectangleBorder(
+  //                           borderRadius: BorderRadius.circular(18.0),
+  //                           side: BorderSide(color: Colors.blue)))),
+  //               onPressed: () {
+  //                 BlocProvider.of<WeatherBloc>(context).add(ResetWeather());
+  //               },
+  //               child: Text(
+  //                 "Tìm kiếm",
+  //                 style: TextStyle(color: Colors.white, fontSize: 16),
+  //               ),
+  //             ),
+  //           )
+  //         ],
+  //       ));
+  // }
 }
