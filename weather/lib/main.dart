@@ -341,18 +341,19 @@ class AdditionalWeather extends StatelessWidget {
               ),
 
               SizedBox(
-                height: 20,
+                height: 35,
               ),
               //currentWeatherMoreDetailsWidget
 
               Column(
+                //wind and humidity
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: 60,
-                        width: 80,
+                        height: 100,
+                        width: 100,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -368,8 +369,8 @@ class AdditionalWeather extends StatelessWidget {
                         child: Image.asset("assets/icons/wind.png"),
                       ),
                       Container(
-                        height: 60,
-                        width: 80,
+                        height: 100,
+                        width: 100,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -384,9 +385,52 @@ class AdditionalWeather extends StatelessWidget {
                         ),
                         child: Image.asset("assets/icons/humidity.png"),
                       ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 7,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        height: 20,
+                        width: 100,
+                        child: Text(
+                          weather.wind.toString() + "km/h",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                        width: 100,
+                        child: Text(
+                          weather.humidity.toString() + " %",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  //resilience
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
                       Container(
-                        height: 60,
-                        width: 80,
+                        height: 100,
+                        width: 100,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -401,6 +445,23 @@ class AdditionalWeather extends StatelessWidget {
                         ),
                         child: Image.asset("assets/icons/resilience.png"),
                       ),
+                      Container(
+                        height: 100,
+                        width: 100,
+                        padding: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const <BoxShadow>[
+                            BoxShadow(
+                              color: Color.fromARGB(204, 223, 223, 223),
+                              offset: Offset(0, 0),
+                              blurRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: Image.asset("assets/icons/clouds.png"),
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -411,33 +472,7 @@ class AdditionalWeather extends StatelessWidget {
                     children: [
                       SizedBox(
                         height: 20,
-                        width: 80,
-                        child: Text(
-                          weather.wind.toString() + "km/h",
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                        width: 80,
-                        child: Text(
-                          weather.humidity.toString() + " %",
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                        width: 80,
+                        width: 100,
                         child: Text(
                           weather.pressure.toString() + " hPa",
                           style: const TextStyle(
@@ -448,7 +483,23 @@ class AdditionalWeather extends StatelessWidget {
                           textAlign: TextAlign.center,
                         ),
                       ),
+                      SizedBox(
+                        height: 20,
+                        width: 100,
+                        child: Text(
+                          weather.clouds.toString() + " %",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 15,
                   ),
                 ],
               ),

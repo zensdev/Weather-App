@@ -4,6 +4,7 @@ class WeatherModel {
   final double temp;
   final double pressure;
   final double humidity;
+  final double clouds;
   final double temp_max;
   final double temp_min;
   final String cityName;
@@ -21,6 +22,7 @@ class WeatherModel {
     this.temp,
     this.pressure,
     this.humidity,
+    this.clouds,
     this.temp_max,
     this.temp_min,
     this.cityName,
@@ -36,6 +38,7 @@ class WeatherModel {
       json["main"]["temp"].toDouble(),
       json["main"]["pressure"].toDouble(),
       json["main"]["humidity"].toDouble(),
+      json["clouds"]["all"].toDouble(),
       json["main"]["temp_min"].toDouble(),
       json["main"]["temp_max"].toDouble(),
       json["name"].toString(),
