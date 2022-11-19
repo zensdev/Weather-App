@@ -1,15 +1,15 @@
 // ignore_for_file: prefer_typing_uninitialized_variables, non_constant_identifier_names, file_names
 
 class WeatherModel {
-  final temp;
-  final pressure;
-  final humidity;
-  final temp_max;
-  final temp_min;
-  final cityName;
-  final wind;
-  final sunrise;
-  final sunset;
+  final double temp;
+  final double pressure;
+  final double humidity;
+  final double temp_max;
+  final double temp_min;
+  final String cityName;
+  final double wind;
+  final int sunrise;
+  final int sunset;
   final String icon;
   final String description;
 
@@ -33,31 +33,31 @@ class WeatherModel {
 
   factory WeatherModel.fromJson(Map<String, dynamic> json) {
     return WeatherModel(
-      json["main"]["temp"],
-      json["main"]["pressure"],
-      json["main"]["humidity"],
-      json["main"]["temp_min"],
-      json["main"]["temp_max"],
-      json["name"],
-      json["wind"]["speed"],
-      json["sys"]["sunrise"],
-      json["sys"]["sunset"],
-      json["icon"] as String,
-      json["description"] as String,
+      json["main"]["temp"].toDouble(),
+      json["main"]["pressure"].toDouble(),
+      json["main"]["humidity"].toDouble(),
+      json["main"]["temp_min"].toDouble(),
+      json["main"]["temp_max"].toDouble(),
+      json["name"].toString(),
+      json["wind"]["speed"].toDouble(),
+      json["sys"]["sunrise"].toInt(),
+      json["sys"]["sunset"].toInt(),
+      json["weather"][0]["icon"].toString(),
+      json["weather"][0]["description"].toString(),
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        "temp": temp,
-        "pressure": pressure,
-        "humidity": humidity,
-        "temp_max": temp_max,
-        "temp_min": temp_min,
-        "cityName": cityName,
-        "wind": wind,
-        "sunrise": sunrise,
-        "sunset": sunset,
-        "icon": icon,
-        "description": description,
-      };
+  // Map<String, dynamic> toJson() => {
+  //       "temp": temp,
+  //       "pressure": pressure,
+  //       "humidity": humidity,
+  //       "temp_max": temp_max,
+  //       "temp_min": temp_min,
+  //       "cityName": cityName,
+  //       "wind": wind,
+  //       "sunrise": sunrise,
+  //       "sunset": sunset,
+  //       "icon": icon,
+  //       "description": description,
+  //     };
 }

@@ -1,12 +1,12 @@
 //! RUN:  flutter run --no-sound-null-safety
 
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, import_of_legacy_library_into_null_safe, sized_box_for_whitespace, must_be_immutable, prefer_typing_uninitialized_variables, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unnecessary_new
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, import_of_legacy_library_into_null_safe, sized_box_for_whitespace, must_be_immutable, prefer_typing_uninitialized_variables, prefer_interpolation_to_compose_strings, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, unnecessary_new, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'WeatherBloc.dart';
 import 'WeatherModel.dart';
 import 'WeatherRepo.dart';
-import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Weather App',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.green,
           fontFamily: 'GoogleSans',
           backgroundColor: Colors.white),
       home: Scaffold(
@@ -107,7 +107,7 @@ class SearchPage extends StatelessWidget {
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50.0),
                               side: BorderSide(
-                                color: Colors.blue,
+                                color: Colors.green,
                                 width: 3,
                               ),
                             ),
@@ -120,7 +120,7 @@ class SearchPage extends StatelessWidget {
                         },
                         child: Text(
                           "Tìm kiếm",
-                          style: TextStyle(color: Colors.blue, fontSize: 18),
+                          style: TextStyle(color: Colors.green, fontSize: 18),
                         ),
                       ),
                     )
@@ -162,18 +162,17 @@ class ShowWeather extends StatelessWidget {
                 color: Colors.black, fontSize: 50, fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            height: 15,
+            height: 5,
           ),
-          Icon(
-            Icons.sunny,
-            color: Colors.orange,
-            size: 100,
+          Image.asset(
+            "assets/icons/${weather.icon}@2x.png",
+            width: 200,
           ),
           SizedBox(
-            height: 15,
+            height: 5,
           ),
           Text(
-            weather.getTemp.round().toString() + "°C",
+            weather.getTemp.round().toString() + "°",
             style: TextStyle(color: Colors.black, fontSize: 50),
           ),
           Text(
@@ -186,7 +185,7 @@ class ShowWeather extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Text(
-                    weather.getMinTemp.round().toString() + "°C",
+                    weather.getMinTemp.round().toString() + "°",
                     style: TextStyle(color: Colors.black, fontSize: 30),
                   ),
                   Text(
@@ -198,7 +197,7 @@ class ShowWeather extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Text(
-                    weather.getMaxTemp.round().toString() + "°C",
+                    weather.getMaxTemp.round().toString() + "°",
                     style: TextStyle(color: Colors.black, fontSize: 30),
                   ),
                   Text(
@@ -253,7 +252,7 @@ class ShowWeather extends StatelessWidget {
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50.0),
                     side: BorderSide(
-                      color: Colors.blue,
+                      color: Colors.green,
                       width: 3,
                     ),
                   ),
@@ -266,7 +265,7 @@ class ShowWeather extends StatelessWidget {
               },
               child: Text(
                 "Tìm kiếm",
-                style: TextStyle(color: Colors.blue, fontSize: 18),
+                style: TextStyle(color: Colors.green, fontSize: 18),
               ),
             ),
           )
@@ -277,16 +276,8 @@ class ShowWeather extends StatelessWidget {
 }
 
 class AdditionalWeather extends StatelessWidget {
-  WeatherModel additionalWeather;
-  AdditionalWeather(this.additionalWeather);
-
-  getCurrentDate() {
-    return DateFormat('yyyy-MM-dd').format(DateTime.now());
-  }
-
-  // getSunset() {
-  //   DateTime.fromMillisecondsSinceEpoch(additionalWeather.sunset * 1000);
-  // }
+  WeatherModel weather;
+  AdditionalWeather(this.weather);
 
   @override
   Widget build(BuildContext context) {
@@ -295,25 +286,23 @@ class AdditionalWeather extends StatelessWidget {
           child: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          SizedBox(
-            height: 20,
-          ),
           Column(
             children: [
               Container(
                 margin: const EdgeInsets.only(left: 20, right: 20),
                 alignment: Alignment.topLeft,
-                child: Text(additionalWeather.cityName,
+                child: Text(weather.cityName,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 35,
+                      fontSize: 55,
+                      fontWeight: FontWeight.w600,
                       height: 2,
                     )),
               ),
               Container(
                 margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                 alignment: Alignment.topLeft,
-                child: Text(getCurrentDate(),
+                child: Text(weather.description,
                     style: TextStyle(
                       color: Colors.grey[700],
                       fontSize: 16,
@@ -328,14 +317,141 @@ class AdditionalWeather extends StatelessWidget {
           Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(additionalWeather.icon)
-                  // Image.asset(
-                  //   "assets/icons/${additionalWeather.icon}.png",
-                  // )
+                  Image.asset(
+                    "assets/icons/${weather.icon}@2x.png",
+                    width: 100,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: weather.getTemp.round().toString() + "°",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 60,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
-              )
+              ),
+
+              SizedBox(
+                height: 20,
+              ),
               //currentWeatherMoreDetailsWidget
+
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        height: 60,
+                        width: 80,
+                        padding: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const <BoxShadow>[
+                            BoxShadow(
+                              color: Color.fromARGB(204, 223, 223, 223),
+                              offset: Offset(0, 0),
+                              blurRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: Image.asset("assets/icons/wind.png"),
+                      ),
+                      Container(
+                        height: 60,
+                        width: 80,
+                        padding: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const <BoxShadow>[
+                            BoxShadow(
+                              color: Color.fromARGB(204, 223, 223, 223),
+                              offset: Offset(0, 0),
+                              blurRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: Image.asset("assets/icons/humidity.png"),
+                      ),
+                      Container(
+                        height: 60,
+                        width: 80,
+                        padding: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: const <BoxShadow>[
+                            BoxShadow(
+                              color: Color.fromARGB(204, 223, 223, 223),
+                              offset: Offset(0, 0),
+                              blurRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: Image.asset("assets/icons/resilience.png"),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 7,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        height: 20,
+                        width: 80,
+                        child: Text(
+                          weather.wind.toString() + "km/h",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                        width: 80,
+                        child: Text(
+                          weather.humidity.toString() + " %",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                        width: 80,
+                        child: Text(
+                          weather.pressure.toString() + " hPa",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
         ],
