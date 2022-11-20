@@ -2,8 +2,8 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'WeatherModel.dart';
-import 'WeatherRepo.dart';
+import '../api/WeatherModel.dart';
+import '../api/WeatherRepo.dart';
 
 class WeatherEvent extends Equatable {
   @override
