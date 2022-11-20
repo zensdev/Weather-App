@@ -39,7 +39,6 @@ dependencies:
   intl: ^0.17.0
   simple_animations: ^4.0.1
   supercharged: ^2.1.1
-  geolocator: ^9.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
