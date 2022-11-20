@@ -59,7 +59,7 @@ class SearchPage extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(
                             width: 3,
-                            color: Colors.green,
+                            color: Colors.blue,
                             style: BorderStyle.solid,
                           ),
                         ),
@@ -83,7 +83,7 @@ class SearchPage extends StatelessWidget {
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50.0),
                               side: const BorderSide(
-                                color: Colors.green,
+                                color: Colors.blue,
                                 width: 3,
                               ),
                             ),
@@ -96,7 +96,7 @@ class SearchPage extends StatelessWidget {
                         },
                         child: const Text(
                           "Tìm kiếm",
-                          style: TextStyle(color: Colors.green, fontSize: 18),
+                          style: TextStyle(color: Colors.blue, fontSize: 18),
                         ),
                       ),
                     )

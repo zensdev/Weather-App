@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, import_of_legacy_library_into_null_safe, prefer_typing_uninitialized_variables, prefer_interpolation_to_compose_strings
+// ignore_for_file: must_be_immutable, import_of_legacy_library_into_null_safe, prefer_typing_uninitialized_variables, prefer_interpolation_to_compose_strings, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -115,7 +115,7 @@ class ShowWeather extends StatelessWidget {
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50.0),
                     side: const BorderSide(
-                      color: Colors.green,
+                      color: Colors.blue,
                       width: 3,
                     ),
                   ),
@@ -128,7 +128,7 @@ class ShowWeather extends StatelessWidget {
               },
               child: const Text(
                 "Tìm kiếm",
-                style: TextStyle(color: Colors.green, fontSize: 18),
+                style: TextStyle(color: Colors.blue, fontSize: 18),
               ),
             ),
           )

@@ -41,29 +41,67 @@ class AdditionalWeather extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 10,
+            height: 5,
           ),
           //tempArea
 
           Column(
             children: [
+              //main temp
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Image.asset(
-                    "assets/icons/${weather.icon}@2x.png",
-                    width: 100,
-                  ),
-                  RichText(
-                    text: TextSpan(
+                  Container(
+                    height: 170,
+                    width: 350,
+                    padding: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: const <BoxShadow>[
+                        BoxShadow(
+                          color: Color.fromARGB(204, 145, 145, 145),
+                          offset: Offset(0, 0),
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        TextSpan(
-                          text: weather.getTemp.round().toString() + "°",
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 60,
-                            fontWeight: FontWeight.w600,
-                          ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            //icon
+                            SizedBox(
+                              width: 125,
+                              child: Image.asset(
+                                  "assets/icons/${weather.icon}@2x.png"),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        //temp
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              child: Text(
+                                weather.getTemp.round().toString() + "°",
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 80,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            )
+                          ],
                         ),
                       ],
                     ),
@@ -72,165 +110,254 @@ class AdditionalWeather extends StatelessWidget {
               ),
 
               const SizedBox(
-                height: 35,
+                height: 20,
               ),
               //currentWeatherMoreDetailsWidget
 
               Column(
-                //wind and humidity
                 children: [
+                  //wind and humidity
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: 100,
-                        width: 100,
+                        height: 140,
+                        width: 350,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: const <BoxShadow>[
                             BoxShadow(
-                              color: Color.fromARGB(204, 223, 223, 223),
+                              color: Color.fromARGB(204, 145, 145, 145),
                               offset: Offset(0, 0),
                               blurRadius: 10,
                             ),
                           ],
                         ),
-                        child: Image.asset("assets/icons/wind.png"),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            //humidity
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 70,
+                                  child:
+                                      Image.asset("assets/icons/humidity.png"),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  child: Text(
+                                    weather.humidity.toString() + " %",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 15,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
+                              ],
+                            ),
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            //wind
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 70,
+                                  child: Image.asset("assets/icons/wind.png"),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  child: Text(
+                                    weather.wind.toString() + " km/h",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 15,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  //resilience & clouds
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
                       Container(
-                        height: 100,
-                        width: 100,
+                        height: 140,
+                        width: 350,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: const <BoxShadow>[
                             BoxShadow(
-                              color: Color.fromARGB(204, 223, 223, 223),
+                              color: Color.fromARGB(204, 145, 145, 145),
                               offset: Offset(0, 0),
                               blurRadius: 10,
                             ),
                           ],
                         ),
-                        child: Image.asset("assets/icons/humidity.png"),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            //resilience
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 70,
+                                  child: Image.asset(
+                                      "assets/icons/resilience.png"),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  child: Text(
+                                    weather.pressure.toString() + " hPa",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 15,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
+                              ],
+                            ),
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            //clouds
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 70,
+                                  child: Image.asset("assets/icons/clouds.png"),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  child: Text(
+                                    weather.clouds.toString() + " %",
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 15,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                   const SizedBox(
-                    height: 7,
+                    height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(
-                        height: 20,
-                        width: 100,
-                        child: Text(
-                          weather.wind.toString() + "km/h",
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                        width: 100,
-                        child: Text(
-                          weather.humidity.toString() + " %",
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  //resilience
+                  //sunset & sunrise
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: 100,
-                        width: 100,
+                        height: 140,
+                        width: 350,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                           boxShadow: const <BoxShadow>[
                             BoxShadow(
-                              color: Color.fromARGB(204, 223, 223, 223),
+                              color: Color.fromARGB(204, 145, 145, 145),
                               offset: Offset(0, 0),
                               blurRadius: 10,
                             ),
                           ],
                         ),
-                        child: Image.asset("assets/icons/resilience.png"),
-                      ),
-                      Container(
-                        height: 100,
-                        width: 100,
-                        padding: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: const <BoxShadow>[
-                            BoxShadow(
-                              color: Color.fromARGB(204, 223, 223, 223),
-                              offset: Offset(0, 0),
-                              blurRadius: 10,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                //sunrise
+                                SizedBox(
+                                  width: 70,
+                                  child:
+                                      Image.asset("assets/icons/sunrise.png"),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  child: Text(
+                                    readSunrise(weather.sunrise),
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 15,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
+                              ],
+                            ),
+                            //sunset
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 70,
+                                  child: Image.asset("assets/icons/sunset.png"),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                SizedBox(
+                                  child: Text(
+                                    readSunset(weather.sunset),
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 15,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
+                              ],
                             ),
                           ],
                         ),
-                        child: Image.asset("assets/icons/clouds.png"),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 7,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      SizedBox(
-                        height: 20,
-                        width: 100,
-                        child: Text(
-                          weather.pressure.toString() + " hPa",
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20,
-                        width: 100,
-                        child: Text(
-                          weather.clouds.toString() + " %",
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 15,
+                  SizedBox(
+                    height: 20,
                   ),
                 ],
               ),
