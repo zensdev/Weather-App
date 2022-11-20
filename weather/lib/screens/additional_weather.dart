@@ -30,7 +30,7 @@ class AdditionalWeather extends StatelessWidget {
                       color: Colors.black,
                       fontSize: 55,
                       fontWeight: FontWeight.w600,
-                      height: 2,
+                      height: 1,
                     ),
                   ),
                 ),
@@ -67,7 +67,7 @@ class AdditionalWeather extends StatelessWidget {
                       delay: 0.5,
                       child: Container(
                         height: 170,
-                        width: 380,
+                        width: 350,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -148,7 +148,7 @@ class AdditionalWeather extends StatelessWidget {
                           delay: 1,
                           child: Container(
                             height: 140,
-                            width: 380,
+                            width: 350,
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -169,7 +169,13 @@ class AdditionalWeather extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     SizedBox(
-                                      width: 70,
+                                      child: FadeAnimation(
+                                        delay: 1.1,
+                                        child: const Text("Độ ẩm không khí"),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 60,
                                       child: FadeAnimation(
                                         delay: 1.2,
                                         child: Image.asset(
@@ -204,7 +210,13 @@ class AdditionalWeather extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     SizedBox(
-                                        width: 70,
+                                      child: FadeAnimation(
+                                        delay: 1.3,
+                                        child: const Text("Tốc độ gió"),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        width: 60,
                                         child: FadeAnimation(
                                           delay: 1.4,
                                           child: Image.asset(
@@ -249,7 +261,7 @@ class AdditionalWeather extends StatelessWidget {
                           delay: 1.6,
                           child: Container(
                             height: 140,
-                            width: 380,
+                            width: 350,
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -270,7 +282,13 @@ class AdditionalWeather extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     SizedBox(
-                                      width: 70,
+                                      child: FadeAnimation(
+                                        delay: 1.6,
+                                        child: const Text("Áp suất không khí"),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 60,
                                       child: FadeAnimation(
                                         delay: 1.7,
                                         child: Image.asset(
@@ -305,7 +323,13 @@ class AdditionalWeather extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     SizedBox(
-                                      width: 70,
+                                      child: FadeAnimation(
+                                        delay: 1.8,
+                                        child: const Text("Mây"),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 60,
                                       child: FadeAnimation(
                                         delay: 1.9,
                                         child: Image.asset(
@@ -351,7 +375,7 @@ class AdditionalWeather extends StatelessWidget {
                           delay: 2.1,
                           child: Container(
                             height: 140,
-                            width: 380,
+                            width: 350,
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -372,7 +396,13 @@ class AdditionalWeather extends StatelessWidget {
                                   children: [
                                     //sunrise
                                     SizedBox(
-                                      width: 70,
+                                      child: FadeAnimation(
+                                        delay: 2.1,
+                                        child: const Text("Bình minh"),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 60,
                                       child: FadeAnimation(
                                         delay: 2.2,
                                         child: Image.asset(
@@ -404,7 +434,13 @@ class AdditionalWeather extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     SizedBox(
-                                      width: 70,
+                                      child: FadeAnimation(
+                                        delay: 2.3,
+                                        child: const Text("Hoàng hôn"),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 60,
                                       child: FadeAnimation(
                                         delay: 2.4,
                                         child: Image.asset(
