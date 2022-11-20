@@ -112,7 +112,7 @@ class AdditionalWeather extends StatelessWidget {
                                   child: FadeAnimation(
                                     delay: 0.9,
                                     child: Text(
-                                      weather.getTemp.round().toString() + "°",
+                                      weather.getTemp.round().toString() + "°C",
                                       style: const TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.w600,

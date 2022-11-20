@@ -182,7 +182,7 @@ class ShowWeather extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

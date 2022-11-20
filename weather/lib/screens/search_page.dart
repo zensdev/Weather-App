@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/main.dart';
 import 'package:weather/screens/show_weather.dart';
 import '../service/WeatherBloc.dart';
+import 'package:weather/screens/error.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -117,10 +118,7 @@ class SearchPage extends StatelessWidget {
             } else if (state is WeatherIsLoaded) {
               return ShowWeather(state.getWeather, cityController.text);
             } else {
-              return const Text(
-                "Error",
-                style: TextStyle(color: Colors.black),
-              );
+              return const Error();
             }
           },
         )
