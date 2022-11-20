@@ -52,7 +52,7 @@ class AdditionalWeather extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 5,
+            height: 15,
           ),
           //tempArea
 
@@ -67,7 +67,7 @@ class AdditionalWeather extends StatelessWidget {
                       delay: 0.5,
                       child: Container(
                         height: 170,
-                        width: 350,
+                        width: 380,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -88,7 +88,7 @@ class AdditionalWeather extends StatelessWidget {
                               children: [
                                 //icon
                                 SizedBox(
-                                  width: 125,
+                                  width: 120,
                                   child: FadeAnimation(
                                     delay: 0.7,
                                     child: Image.asset(
@@ -115,8 +115,8 @@ class AdditionalWeather extends StatelessWidget {
                                       weather.getTemp.round().toString() + "°C",
                                       style: const TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 80,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 60,
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
@@ -148,7 +148,7 @@ class AdditionalWeather extends StatelessWidget {
                           delay: 1,
                           child: Container(
                             height: 140,
-                            width: 350,
+                            width: 380,
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -249,7 +249,7 @@ class AdditionalWeather extends StatelessWidget {
                           delay: 1.6,
                           child: Container(
                             height: 140,
-                            width: 350,
+                            width: 380,
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -351,7 +351,7 @@ class AdditionalWeather extends StatelessWidget {
                           delay: 2.1,
                           child: Container(
                             height: 140,
-                            width: 350,
+                            width: 380,
                             padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               color: Colors.white,
