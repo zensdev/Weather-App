@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable, prefer_interpolation_to_compose_strings, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:weather/animation/fade_animation.dart';
 import '../api/WeatherModel.dart';
 import '../service/sunset_sunrise_format.dart';
@@ -19,6 +20,9 @@ class AdditionalWeather extends StatelessWidget {
           //Main title
           Column(
             children: [
+              const SizedBox(
+                height: 15,
+              ),
               Container(
                 margin: const EdgeInsets.only(left: 20, right: 20),
                 alignment: Alignment.topLeft,
