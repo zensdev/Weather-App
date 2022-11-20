@@ -29,11 +29,20 @@ class SearchPage extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     const Text(
-                      "Tìm kiếm thời tiết",
+                      "Thời Tiết",
                       style: TextStyle(
                           fontSize: 40,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
+                    ),
+                    const SizedBox(
+                      height: 35,
+                    ),
+                    SizedBox(
+                      child: Image.asset(
+                        "assets/icons/search.png",
+                        width: 100,
+                      ),
                     ),
                     const SizedBox(
                       height: 35,
@@ -110,7 +119,7 @@ class SearchPage extends StatelessWidget {
             } else {
               return const Text(
                 "Error",
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               );
             }
           },
