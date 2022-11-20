@@ -1,4 +1,5 @@
 //! RUN:  flutter run --no-sound-null-safety
+//! BUILD:  flutter build apk --split-per-abi --no-sound-null-safety
 
 // ignore_for_file: import_of_legacy_library_into_null_safe, unused_import
 
