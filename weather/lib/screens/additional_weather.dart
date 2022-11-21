@@ -21,7 +21,7 @@ class AdditionalWeather extends StatelessWidget {
           Column(
             children: [
               const SizedBox(
-                height: 15,
+                height: 30,
               ),
               Container(
                 margin: const EdgeInsets.only(left: 20, right: 20),
